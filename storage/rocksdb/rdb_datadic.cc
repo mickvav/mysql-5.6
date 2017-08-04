@@ -3363,7 +3363,7 @@ bool Rdb_validate_tbls::scan_for_frms(const std::string &datadir,
   for (uint ii = 0; ii < dir_info->number_off_files; ii++, file_info++) {
     /* Find .frm files that are not temp files (those that start with '#') */
     const char *ext = strrchr(file_info->name, '.');
-    if (ext != nullptr && !is_prefix(file_info->name, tmp_file_prefix) &&
+    if (ext != nullptr && 
         strcmp(ext, ".frm") == 0) {
       std::string tablename =
           std::string(file_info->name, ext - file_info->name);
